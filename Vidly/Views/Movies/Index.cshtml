@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Vidly.Models.Movie>
+﻿@using Vidly.ViewModels
+@model IEnumerable<Vidly.Models.Movie>
 
 @{
     ViewBag.Title = "Movies";
@@ -22,7 +23,7 @@
         @foreach (var movie in Model)
         {
             <tr>
-                <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
                 <td>@movie.Genre.Name</td>
             </tr>
         }
