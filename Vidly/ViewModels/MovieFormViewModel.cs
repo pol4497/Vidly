@@ -28,7 +28,7 @@ namespace Vidly.ViewModels
 
         [Display(Name = "Number in Stock")]
         [Required]
-        public short NumberInStock { get; set; }
+        public short? NumberInStock { get; set; }
 
         public string Title
         {
