@@ -23,9 +23,7 @@ namespace Vidly.Controllers.Api
         //Get api/movies
         public IHttpActionResult GetMovies()
         {
-            var movieDtos = _context.Movies.ToList().Select(Mapper.Map < Movie, MovieDto>);
-
-            return Ok(movieDtos);
+            return Ok(_context.Movies.Include(m => m.Genre).ToList().Select(Mapper.Map<Movie, MovieDto>));
         }
 
         //Get api/movies/1
@@ -87,9 +85,9 @@ namespace Vidly.Controllers.Api
         {
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
 
-            if (!ModelState.IsValid)
+            if (movieInDb == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             _context.Movies.Remove(movieInDb);
