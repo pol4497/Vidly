@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Vidly.Models;
+using Vidly.Models.Identity_Models;
 
 namespace Vidly
 {
